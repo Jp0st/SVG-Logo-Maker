@@ -30,7 +30,7 @@ const questions = [
             if(text.length <= 3){
                 return true;
             }
-            console.log('Please enter a maximum of three (3) characters and try again!');
+            console.log('Please enter a maximum of three (3) characters and try again!'); 
             return false;
         }
     },
@@ -47,3 +47,57 @@ const questions = [
         }
     }
 ];
+
+
+const createLogo = ({shape, shapeColor, text, textColor}) => {
+    let shapePicked;
+    switch (shape) {
+        case 'Circle':
+            shapePicked = new Circle();
+            break;
+        case 'Triangle':
+            shapePicked = new Triangle();
+            break;
+        case 'Square':
+            shapePicked = new Square();
+            break;
+        default:
+            console.log('Please choose a valid shape and try again!')
+            break;
+    }
+
+    if (/^#([a-Fa-F0-9]{6}|[a-Fa-F0-9]{3})$/.test(shapeColor)) {
+        shapePicked.setColor(shapeColor);
+    } else {
+        shapePicked.setColor(shapeColor.toLowercase());
+    }
+
+    if(/^#([a-Fa-F0-9]{6}|[a-Fa-F0-9]{3})$/.test(textColor)){
+        shapePicked.setTextColor(textColor);
+    } else {
+        shapePicked.setTextColor(textColor.toLowercase());
+    
+    }
+
+    const svgInfo = `
+        <svg width = "300" height = "200" xmlns="http://www.w3.org/2000/svg">
+        ${shapePicked.render()}
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="${shapePicked.getTextColor()}">${text}</text>
+        </svg>`
+    
+
+    fs.writeFile('logo.svg', svgInfo)
+    console.log('Your logo has been created!')
+};
+
+const init = () => {
+    inquirer
+        .prompt(questions)
+        .then(({shape, shapeColor, text, textColor}) => {
+            createLogo({text, textColor, shape, shapeColor});
+        })
+    .catch((err) => console.log(err));
+};
+
+
+init();

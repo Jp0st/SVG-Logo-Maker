@@ -79,7 +79,10 @@ const createLogo = ({ shape, shapeColor, text, textColor }) => {
         <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="${shapePicked.getTextColor()}">${text}</text>
     </svg>`;
 
-    fs.writeFile('logo.svg', svgInfo, (err) => {
+    const examplesFolderPath = './examples'; // Change this to the correct path
+    const svgFilePath = `${examplesFolderPath}/logo.svg`;
+
+    fs.writeFile(svgFilePath, svgInfo, (err) => {
         if (err) {
             console.log('Error writing file:', err);
         } else {

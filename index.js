@@ -73,13 +73,16 @@ const createLogo = ({ shape, shapeColor, text, textColor }) => {
 
     const shapeSvg = shapePicked.render();
     
+    const shapeWidth = 100;
+    const shapeHeight = 100; 
+
     const svgInfo = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">
+    <svg xmlns="http://www.w3.org/2000/svg" width="${shapeWidth}" height="${shapeHeight}">
         ${shapeSvg}
-        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="${shapePicked.getTextColor()}">${text}</text>
+        <text x="${shapeWidth / 2}" y="${shapeHeight / 2}" dominant-baseline="middle" text-anchor="middle" fill="${shapePicked.getTextColor()}">${text}</text>
     </svg>`;
 
-    const examplesFolderPath = './examples'; // Change this to the correct path
+    const examplesFolderPath = './examples';
     const svgFilePath = `${examplesFolderPath}/logo.svg`;
 
     fs.writeFile(svgFilePath, svgInfo, (err) => {

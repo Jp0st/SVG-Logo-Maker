@@ -1,7 +1,7 @@
 
     <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
         <svg width="100" height="100">
-                    <polygon points="50,0 100,100 0,100" style="fill:Red"/>
+                    <rect width="100" height="100" style="fill:Red"/>
                 </svg>
-        <text x="50" y="50" dominant-baseline="middle" text-anchor="middle" fill="yellow">Mom</text>
+        <text x="50" y="50" dominant-baseline="middle" text-anchor="middle" fill="Green">Mom</text>
     </svg>

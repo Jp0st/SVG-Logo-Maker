@@ -19,6 +19,8 @@ All that is needed is for the user to clone the repository to their local machin
 
 After installing the necessary packages the user needs to open an integrated terminal by right clicking on the 'index.js' file. When the command line appears type in 'node index.js' and answer the questions provided.  The logo.svg will be generated and placed into the examples folder within the project.
 
+[SVG Logo Maker](https://github.com/Jp0st/SVG-Logo-Maker/assets/108998647/d42b81f0-06ee-4588-8396-87fdfef70931)
+
 
 https://drive.google.com/drive/folders/1Pp02whLn80u_qD3J1uIQYD1ztDKz3XOM
 
